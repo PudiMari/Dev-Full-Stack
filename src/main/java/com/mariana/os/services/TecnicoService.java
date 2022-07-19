@@ -3,6 +3,8 @@ package com.mariana.os.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.mariana.os.domain.Pessoa;
+import com.mariana.os.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,9 @@ public class TecnicoService {
 
     @Autowired
     private TecnicoRepository repository;
+
+    @Autowired
+    private PessoaRepository pessoaRepository;
 
     public Tecnico findById(Integer id) {
 
@@ -52,14 +57,6 @@ public class TecnicoService {
         return repository.save(oldObj);
     }
 
-    private Tecnico findByCPF(TecnicoDTO objDTO) {
-        Tecnico obj = repository.findByCPF(objDTO.getCpf());
-        if (obj != null) {
-            return obj;
-        }
-        return null;
-    }
-
     public void delete(Integer id) {
         Tecnico obj = findById(id);
 
@@ -70,4 +67,15 @@ public class TecnicoService {
 
         repository.deleteById(id);
     }
+
+    private Pessoa findByCPF(TecnicoDTO objDTO) {
+        Pessoa obj = pessoaRepository.findByCPF(objDTO.getCpf());
+
+        if (obj != null) {
+            return obj;
+        }
+        return null;
+    }
+
+
 }
