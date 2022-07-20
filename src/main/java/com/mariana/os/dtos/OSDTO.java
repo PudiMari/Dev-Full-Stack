@@ -3,6 +3,7 @@ package com.mariana.os.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mariana.os.domain.OS;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -17,6 +18,7 @@ public class OSDTO implements Serializable {
     private LocalDateTime dataFechamento;
 
     private Integer prioridade;
+    @NotEmpty(message = "O campo OBSERVAÇÕES é requerido")
     private String observacoes;
     private Integer status;
     private Integer tecnico;
