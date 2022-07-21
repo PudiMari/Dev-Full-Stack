@@ -1,20 +1,19 @@
 package com.mariana.os.resources;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.mariana.os.domain.Tecnico;
+import com.mariana.os.dtos.TecnicoDTO;
+import com.mariana.os.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.mariana.os.domain.Tecnico;
-import com.mariana.os.dtos.TecnicoDTO;
-import com.mariana.os.services.TecnicoService;
-
 import javax.validation.Valid;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
@@ -52,7 +51,7 @@ public class TecnicoResource {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
