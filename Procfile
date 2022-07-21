@@ -1,1 +1,1 @@
-web: java -jar target/fullstack-os.jar
+web: node index.js
