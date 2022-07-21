@@ -1,1 +1,1 @@
-web: java -jar target/Dev-Full-Stack.jar
+web: java -jar target/fullstack-os.jar
