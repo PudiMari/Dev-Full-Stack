@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/maven-wrapper.jar -Dserver.port=#PORT $JAR_OPTS
+web: --server.port=$PORT
